@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김상욱 | Career Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #050505;
+      color: #f4f4f5;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .logo {
+      font-weight: 800;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 28px;
+      color: #a1a1aa;
+    }
+
+    .nav-menu a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      color: #a1a1aa;
+      font-size: 15px;
+      margin-bottom: 42px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 118px);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      max-width: 980px;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 span {
+      color: #a1a1aa;
+    }
+
+    .hero-desc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      max-width: 980px;
+    }
+
+    .hero-desc p {
+      color: #d4d4d8;
+      font-size: 18px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: #f4f4f5;
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-label {
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 42px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      min-height: 300px;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      background: #0f0f10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .number {
+      color: #71717a;
+      font-size: 14px;
+    }
+
+    .service-card h3 {
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .service-card p {
+      color: #c4c4cc;
+      font-size: 15px;
+    }
+
+    .career-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .career-item {
+      display: grid;
+      grid-template-columns: 120px 1fr 140px;
+      gap: 24px;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      align-items: start;
+    }
+
+    .career-item:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .career-item .year {
+      color: #a1a1aa;
+      font-size: 15px;
+    }
+
+    .career-item h3 {
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .career-item p,
+    .career-item li {
+      color: #c4c4cc;
+      font-size: 16px;
+    }
+
+    .career-item ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      justify-self: end;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #d4d4d8;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-name {
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .about-text p {
+      color: #d4d4d8;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .keyword {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #d4d4d8;
+      font-size: 14px;
+    }
+
+    .case-box {
+      border-radius: 32px;
+      background: #f4f4f5;
+      color: #050505;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+    }
+
+    .case-box h3 {
+      font-size: 42px;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .case-box p,
+    .case-box li {
+      color: #3f3f46;
+      font-size: 16px;
+    }
+
+    .case-box ul {
+      padding-left: 18px;
+      margin-top: 16px;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 120px 0;
+    }
+
+    .contact h2 {
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: 1;
+      letter-spacing: -0.07em;
+      margin-bottom: 26px;
+    }
+
+    .contact p {
+      color: #a1a1aa;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #050505;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: #71717a;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hero-top,
+      .hero-desc,
+      .service-grid,
+      .about-grid,
+      .case-box,
+      .career-item {
+        grid-template-columns: 1fr;
+      }
+
+      .career-item {
+        gap: 12px;
+      }
+
+      .tag {
+        justify-self: start;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">KIM SANGWOOK</a>
+      <nav class="nav-menu">
+        <a href="#service">Strength</a>
+        <a href="#career">Career</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-top">
+          <p>Career Profile / Employment Consulting</p>
+          <p>Based in Korea</p>
+        </div>
+
+        <h1>For People<br />Who Need <span>Direction</span></h1>
+
+        <div class="hero-desc">
+          <p>
+            변화를 빠르게 이해하고, 사람의 상황을 현실적인 실행 방향으로 연결하는 김상욱입니다.
+          </p>
+          <div>
+            <p>
+              국민취업지원제도와 국비지원학원 취업지원 상담 경험을 바탕으로 구직자의 상황을 분석하고,
+              취업 준비 과정에서 필요한 방향과 실행 계획을 함께 설계해왔습니다.
+            </p>
+            <br />
+            <span class="status"><i class="dot"></i> available for work 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container">
+        <p class="section-label">what i do / strength</p>
+        <h2 class="section-title">상황을 이해하고,<br />실행 가능한 방향으로 정리합니다.</h2>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="number">01</span>
+            <div>
+              <h3>Career Consulting</h3>
+              <p>구직자의 상황과 목표를 파악하고, 현실적인 취업 준비 방향을 제안합니다.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="number">02</span>
+            <div>
+              <h3>Fast Adaptation</h3>
+              <p>취업 시장, 교육 과정, 사회 흐름의 변화를 빠르게 습득하고 현장에 적용합니다.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="number">03</span>
+            <div>
+              <h3>Action Planning</h3>
+              <p>막연한 조언보다 실제 행동으로 이어질 수 있는 구체적인 계획을 함께 만듭니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="container">
+        <p class="section-label">selected experience /</p>
+        <h2 class="section-title">Career Experience</h2>
+
+        <div class="career-list">
+          <article class="career-item">
+            <span class="year">01</span>
+            <div>
+              <h3>국민취업지원제도 상담</h3>
+              <p>
+                다양한 상황의 구직자를 대상으로 현재 상태를 진단하고, 취업 목표 설정과 실행 계획 수립을 지원했습니다.
+              </p>
+              <ul>
+                <li>개인별 상황 분석 및 취업 방향 상담</li>
+                <li>지원 제도와 구직 활동 계획 안내</li>
+                <li>상담 이후 실행을 위한 지속적인 피드백 제공</li>
+              </ul>
+            </div>
+            <span class="tag">Employment Support</span>
+          </article>
+
+          <article class="career-item">
+            <span class="year">02</span>
+            <div>
+              <h3>국비지원학원 취업지원 상담</h3>
+              <p>
+                교육 수료생이 자신의 강점과 학습 경험을 채용 시장에 맞게 표현할 수 있도록 지원했습니다.
+              </p>
+              <ul>
+                <li>이력서, 자기소개서, 면접 준비 지원</li>
+                <li>교육 과정과 취업 목표 간 연결점 정리</li>
+                <li>채용 흐름에 맞춘 현실적인 준비 전략 제안</li>
+              </ul>
+            </div>
+            <span class="tag">Career Support</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case">
+      <div class="container">
+        <p class="section-label">case study /</p>
+        <div class="case-box">
+          <h3>막연함을<br />실행 계획으로<br />바꾸는 과정</h3>
+          <div>
+            <p>
+              상담 현장에서 가장 중요하게 생각하는 것은 상대방이 처한 상황을 정확히 이해하고,
+              당장 실행할 수 있는 작은 단계로 정리하는 것입니다.
+            </p>
+            <ul>
+              <li>현재 상황과 고민을 먼저 정리</li>
+              <li>취업 목표와 현실적인 제약 조건 분석</li>
+              <li>이력서, 면접, 지원 전략 등 실행 항목 구체화</li>
+              <li>결과를 확인하며 다음 행동으로 연결</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="section-label">about me /</p>
+          <h2 class="about-name">Kim<br />Sangwook</h2>
+        </div>
+
+        <div class="about-text">
+          <p>
+            저는 빠르게 변화하는 환경 속에서 필요한 정보를 습득하고, 사람에게 맞는 방식으로 전달하는 일을 중요하게 생각합니다.
+          </p>
+          <p>
+            취업지원 상담 경험을 통해 사람마다 다른 배경과 상황을 이해하는 법을 배웠고,
+            단순한 정보 제공보다 실제 행동으로 이어지는 커뮤니케이션의 중요성을 체감했습니다.
+          </p>
+          <p>
+            앞으로도 변화에 빠르게 적응하며, 사람과 기회를 연결하는 역할을 더 넓은 영역에서 만들어가고 싶습니다.
+          </p>
+
+          <div class="keywords">
+            <span class="keyword">Communication</span>
+            <span class="keyword">Career Consulting</span>
+            <span class="keyword">Adaptability</span>
+            <span class="keyword">Problem Solving</span>
+            <span class="keyword">Execution</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Let's make<br />it happen</h2>
+        <p>저에 대해 더 궁금하시다면 아래 연락처로 편하게 연락 주세요.</p>
+        <a href="mailto:your@email.com" class="btn">Send Message</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Kim Sangwook. All rights reserved.</div>
+  </footer>
+</body>
+</html>
